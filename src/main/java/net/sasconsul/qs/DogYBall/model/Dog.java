@@ -3,6 +3,8 @@ package net.sasconsul.qs.DogYBall.model;
 import org.jbox2d.common.Vec2;
 
 /**
+ * Simulation of an active dog.
+ *
  * Created by sasconsul on 8/15/16.
  */
 public class Dog extends PhysicsElement {
@@ -30,14 +32,18 @@ public class Dog extends PhysicsElement {
     }
 
     public void eatBall() {
-        this.isChasingBall = false;
-        this.caughtBall = true;
+        synchronized (this) {
+            this.isChasingBall = false;
+            this.caughtBall = true;
+        }
 
         // Really dog eating ball.
         ball.eaten();
 
-        this.ball = null;
-        this.caughtBall = false;  // For multi-threaded simulation.
+        synchronized (this) { // For multi-threaded simulation.
+            this.ball = null;
+            this.caughtBall = false;
+        }
     }
 
     public String getName() {
