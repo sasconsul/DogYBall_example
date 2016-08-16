@@ -17,4 +17,8 @@ public class Ball extends PhysicsElement {
     public void eaten() {
         //TODO implement.
     }
+
+    public String getColor() {
+        return this.color;
+    }
 }
