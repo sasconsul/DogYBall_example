@@ -2,8 +2,12 @@
 <suite name="Suite1" verbose="1" >
     <test name="Dog" >
         <classes>
-            <class name="net.sasconsul.qs.DogYBall.DogTest"  />
-<!--            <class name="BallTest" />-->
+            <class name="net.sasconsul.qs.DogYBall.model.DogTest"  />
+        </classes>
+    </test>
+    <test name="Ball" >
+        <classes>
+            <class name="net.sasconsul.qs.DogYBall.model.BallTest" />
         </classes>
     </test>
 

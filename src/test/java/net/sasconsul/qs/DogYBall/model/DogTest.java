@@ -1,11 +1,8 @@
-package net.sasconsul.qs.DogYBall;
+package net.sasconsul.qs.DogYBall.model;
 
-import net.sasconsul.qs.DogYBall.model.Ball;
-import net.sasconsul.qs.DogYBall.model.Dog;
 import org.jbox2d.common.Vec2;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import static org.testng.AssertJUnit.*;
 
 
 /**
@@ -46,8 +43,8 @@ public class DogTest {
 
         dog.eatBall();  // Not multi-threaded.
 
-        Assert.assertTrue(!dog.isCaughtBall(), "Dog can not have caught a ball that has been eaten (single thread case.)");
-        Assert.assertTrue(!dog.isChasingBall(), "Dog can not be chasing an eaten ball.");
+        Assert.assertFalse(dog.isCaughtBall(), "Dog can not have caught a ball that has been eaten (single thread case.)");
+        Assert.assertFalse(dog.isChasingBall(), "Dog can not be chasing an eaten ball.");
         Assert.assertNull(dog.getBall(), "Dog can not an eaten ball");
     }
 }
